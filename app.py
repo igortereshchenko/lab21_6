@@ -2,12 +2,12 @@ import os
 from flask import Flask, render_template,request
 from flask_sqlalchemy import SQLAlchemy
 
-#project_dir = os.path.dirname(os.path.abspath(__file__))
-#database_file = "postgresql:///{}".format(os.path.join(project_dir, "bookdatabase.db"))
+DATABASE_URI = 'postgres+psycopg2://postgres:16071994@localhost:5432/Training'
 
 app = Flask(__name__)
-#app.config["SQLALCHEMY_DATABASE_URI"] = database_file
-#db = SQLAlchemy(app)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URI
+db = SQLAlchemy(app)
 
 @app.route('/', methods=["GET", "POST"])
 def home():

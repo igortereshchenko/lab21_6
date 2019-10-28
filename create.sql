@@ -31,6 +31,6 @@ create table Complex_has_exercise(
 create table User_do_complex(
 	user_id	int not NULL references Users(user_id),
 	complex_name varchar(20) not NULL references Complex(complex_name),
-	time_start datetime not NULL,
+	time_start timestamp not NULL,
 	status varchar(10) not NULL,
 	primary key (complex_name,user_id,time_start));
