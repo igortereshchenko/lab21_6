@@ -8,7 +8,8 @@ from flask_bootstrap import Bootstrap
 from forms import *
 from models import *
 
-DATABASE_URI = 'postgresql://postgres:MYUmyu2020@localhost:5432/postgres'
+#DATABASE_URI = 'postgresql://postgres:MYUmyu2020@localhost:5432/postgres'
+DATABASE_URI = 'postgres://vdhagdclthcdic:dc0f48d3be9c9b63694e1b16eb71cf674695df63f39e30ed4c90dad35364a113@ec2-54-228-243-238.eu-west-1.compute.amazonaws.com:5432/d58rtmm8nujh88'
 app = Flask(__name__)
 Bootstrap(app)
 app.config['SECRET_KEY'] = 'ksjdfhdsjkflhdsjklvn'
