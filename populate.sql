@@ -53,10 +53,10 @@ INSERT INTO Complex_has_exercise (complex_name, exercise_name, repeater)
 VALUES ('hard sestem', 'push ups', 100);
 
 INSERT INTO User_do_complex ( user_id, complex_name, time_start, status)
-VALUES (1, 'for you', '2019-10-25 23:59:59', 'rejected');
+VALUES (1, 'for you', '2019-10-25 23:59:59' 'rejected');
 
 INSERT INTO User_do_complex ( user_id, complex_name, time_start, status)
-VALUES (2, 'for you', '2019-10-25 23:59:59', 'rejected');
+VALUES (2, 'for you', '2019-10-25 23:59:59' 'rejected');
 
 INSERT INTO User_do_complex ( user_id, complex_name, time_start, status)
-VALUES (2, 'for you', '2019-10-25 13:00:00', 'done');
+VALUES (2, 'for you', '2019-10-25 13:00:00' 'done');
