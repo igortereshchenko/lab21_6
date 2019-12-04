@@ -1,0 +1,50 @@
+{% extends "home.html" %}
+
+{% block title %}user CRUD{% endblock %}
+
+{% block content %}
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Birthday</th>
+            <th scope="col">Weight</th>
+            <th scope="col">Activity</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in usersAll%}
+        <tr>
+            <td> {{user.user_name}}</td>
+            <td> {{user.age}}</td>
+            <td> {{user.weight}}</td>
+            <td> {{user.activity}}</td>
+            <td>
+                <a href="/users_update?id={{user.user_id}}"
+                   title="edit button">
+                    <button type="button" class="btn btn-warning" name="btn_edit_user"
+                            data-user_id="{{user.user_id}}">Edit
+                    </button>
+                </a>
+                <a href="/delete_user?id={{user.user_id}}"
+                   title="delete button">
+                    <button type="button" class="btn btn-danger" name="btn_delete_user"
+                            data-user_id="{{user.user_id}}">Delete
+                    </button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td>
+                <a href="/users_create" title="new user button">
+                    <button type="button" class="btn btn-success" name="btn_new_user">New user</button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
