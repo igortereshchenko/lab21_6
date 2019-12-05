@@ -9,12 +9,20 @@ from forms import *
 from models import *
 
 #DATABASE_URI = 'postgresql://postgres:MYUmyu2020@localhost:5432/postgres'
+<<<<<<< HEAD
 DATABASE_URL = 'postgres://vdhagdclthcdic:dc0f48d3be9c9b63694e1b16eb71cf674695df63f39e30ed4c90dad35364a113@ec2-54-228-243-238.eu-west-1.compute.amazonaws.com:5432/d58rtmm8nujh88'
+=======
+DATABASE_URI = 'postgres://vdhagdclthcdic:dc0f48d3be9c9b63694e1b16eb71cf674695df63f39e30ed4c90dad35364a113@ec2-54-228-243-238.eu-west-1.compute.amazonaws.com:5432/d58rtmm8nujh88'
+>>>>>>> 8a3fba17a3a39f4a84426605df29e60ff5a50cbc
 app = Flask(__name__)
 Bootstrap(app)
 app.config['SECRET_KEY'] = 'ksjdfhdsjkflhdsjklvn'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+<<<<<<< HEAD
 app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
+=======
+app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URI
+>>>>>>> 8a3fba17a3a39f4a84426605df29e60ff5a50cbc
 db = SQLAlchemy(app)
 #db.drop_all()
 #db.create_all()
