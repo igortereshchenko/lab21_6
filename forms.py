@@ -32,3 +32,14 @@ class UserDoComplexForm(FlaskForm):
         DataRequired("Enter status activity"), Length(2,10,"Status should be from 2 to 10 chars")])
 
     submit = SubmitField('Submit')
+
+class ClubForm(FlaskForm):
+    club_name = StringField("ClabName", [
+        DataRequired("Enter name Club that exist")])
+    prise = IntegerField("Prise",[
+                           DataRequired("Enter User Id that exist"), NumberRange(min=0, max=999)])
+    city = StringField("City", [
+        DataRequired("Enter name Club that exist") ])
+    rating = IntegerField("rating",[
+                           DataRequired("Enter User Id that exist"), NumberRange(min=1, max=10)])
+

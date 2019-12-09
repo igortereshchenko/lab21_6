@@ -216,6 +216,64 @@ def delete_udc():
     db.session.commit()
     return redirect(url_for('user_do_complex'))
 
+@app.route('/club', methods=["GET"])
+def club():
+    club_all = db.session.query(Club).all()
+    return render_template('club.html', usersAll=club_all)
+
+@app.route('/club_create', methods=["GET", "POST"])
+def club_create():
+    form = ClubForm()
+    if request.method == 'POST':
+        if not form.validate():
+            render_template('club_create.html', form=form, form_name='Create club')
+        else:
+            club_data = Club(
+                club_name=form.club_name.data,
+                price=form.price.data,
+                city=form.city.data,
+                rating=form.rating.data
+            )
+            db.session.add(club_data)
+            db.session.commit()
+            return redirect(url_for('clubs'))
+    return render_template('club_create.html', form=form, form_name='Create club')
+
+@app.route('/club_update', methods=['GET','POST'])
+def club_update():
+    form = ClubForm()
+    club_name = request.args.get('club_name')
+    if request.method == 'GET':
+        field = db.session.query(Club).filter(Club.club_name == name).one()
+        form.prise.data = field.prise
+        form.city.data = field.city
+        form.rating.data = field.rating
+
+        return render_template('club_create.html', form=form, form_name='Update club')
+    else:
+        if not form.validate():
+            return render_template('club_create.html', form=form, form_name='Update club')
+
+        club = db.session.query(Club).filter(Club.club_name == name).one()
+        club.club_name = form.name.data
+        club.price = form.prise.data
+        club.city = form.city.data
+        club.rating = form.rating.data
+
+        db.session.commit()
+        return redirect(url_for('club'))
+
+@app.route('/delete_club')
+def delete_club():
+    name = request.args.get('name')
+    try:
+        db.session.delete(db.session.query(Club).filter(Club.club_name == name).one())
+        db.session.commit()
+        return redirect(url_for('club'))
+    except:
+        message = 'You cant delete this'
+        return render_template('error.html', message=message)
+
 @app.route('/dashboard')
 def rejects():
     data = db.session.query(User_do_complex).all()
