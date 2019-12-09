@@ -1,0 +1,50 @@
+{% extends "home.html" %}
+
+{% block title %}user CRUD{% endblock %}
+
+{% block content %}
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Clubname</th>
+            <th scope="col">Prise</th>
+            <th scope="col">City</th>
+            <th scope="col">Rating</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in usersAll%}
+        <tr>
+            <td> {{club.club_name}}</td>
+            <td> {{club.price}}</td>
+            <td> {{club.city}}</td>
+            <td> {{club.rating}}</td>
+            <td>
+                <a href="/club_update?name={{club.club_name}}"
+                   title="edit button">
+                    <button type="button" class="btn btn-warning" name="btn_edit_club"
+                            data-club_name="{{club.club_name}}">Edit
+                    </button>
+                </a>
+                <a href="/delete_clab?name={{club.club_name}}"
+                   title="delete button">
+                    <button type="button" class="btn btn-danger" name="btn_delete_club"
+                            data-club_name="{{club.club_name}}">Delete
+                    </button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td>
+                <a href="/club_create" title="new user button">
+                    <button type="button" class="btn btn-success" name="btn_new_user">New club</button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
